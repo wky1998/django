@@ -1,0 +1,31 @@
+{% extends 'rango/base.html' %}
+{%load staticfiles%}
+{% block title_block %}
+    Rango
+{% endblock %}
+{% block body_block %}
+<div class="jumbotron p-4">
+    <div class="container"><h1 class="jumbotron-heading">Rango says...</h1>
+        <div><h2 class="h2">
+            {% if user.is_authenticated %}
+                howdy {{ user.username }}!
+            {% else %}
+                hey there partner!
+            {% endif %}
+        </h2>
+        </div>
+    </div>
+</div>
+<div>
+    <strong> This is about page</strong><br/>
+    {% if visits %}
+        Visits: {{ visits }}<br/>
+    {% endif %}
+    {% if last_visit %}
+        Last visit time: {{ last_visit }}
+    {% endif %}
+</div>
+<div>
+    <img src="{% static 'images/1.jpg' %}" alt="Picture of yanlingji" />
+</div>
+{% endblock %}

@@ -1,5 +1,4 @@
-
- <!DOCTYPE html>
+<!DOCTYPE html>
 {% load staticfiles %}
 {% load rango_template_tags %}
 <html lang="en">
@@ -33,44 +32,46 @@ aria-expanded="false"
 aria-label="Toggle navigation">
 <span class="navbar-toggler-icon"></span>
 </button>
-<a class="navbar-brand" href="{% url 'rango:index' %}">Rango</a>
+<a class="navbar-brand" href="{% url 'index' %}">Rango</a>
 <div class="collapse navbar-collapse" id="navbar">
 <ul class="navbar-nav mr-auto">
 <li class="nav-item active">
-<a class="nav-link" href="{% url 'rango:index' %}">
+<a class="nav-link" href="{% url 'index' %}">
 Home
 </a>
 </li>
 <li class="nav-item">
-<a class="nav-link" href="{% url 'rango:about' %}">
+<a class="nav-link" href="{% url 'about' %}">
 About
 </a>
 </li>
 {% if user.is_authenticated %}
-<!--<li class="nav-item">-->
-<!--<a class="nav-link" href="{% url 'rango:restricted' %}">-->
-<!--Restricted Page-->
-<!--</a>-->
-<!--</li>-->
 <li class="nav-item">
-<a class="nav-link" href="{% url 'rango:add_cateory' %}">
+<a class="nav-link" href="{% url 'restricted' %}">
+Restricted Page
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="{% url 'add_cateory' %}">
 Add a New Category
 </a>
     </li>
-<!--<li class="nav-item">-->
-<!--<a class="nav-link" href="{% url 'rango:auth_logout' %}?next=/rango/">-->
-<!--Logout-->
-<!--</a>-->
-<!--</li>-->
-
+<li class="nav-item">
+<a class="nav-link" href="{% url 'auth_logout' %}?next=/rango/">
+Logout
+</a>
+</li>
 {% else %}
-    <li class="nav-item">
-        <a class="nav-link" href="{% url 'rango:login' %}">Login</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="{% url 'rango:register' %}">Register</a>
-    </li>
-
+<li class="nav-item">
+<a class="nav-link" href="{% url 'registration_register' %}">
+Register Here
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="{% url 'auth_login' %}">
+Login
+</a>
+</li>
 {% endif %}
 </ul>
 </div>
